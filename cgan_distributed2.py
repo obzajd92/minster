@@ -201,7 +201,9 @@ def main():
 
     print("\n--- 3. Running Distributed Training Sequence via .fit() ---")
     # Tensors are seamlessly distributed across GPUs/TPUs under JAX/XLA rule configurations
-    cgan.fit(x=[x_train, y_train],synthetic_image = generator.predict([random_noise, control_condition], verbose=0)print(f"Generated a conditional image array for digit '{target_digit}' with shape: {synthetic_image.shape}")
+    cgan.fit(x=[x_train, y_train],synthetic_image = generator.predict([random_noise, control_condition], verbose=0)print(f"Generated a conditional image array for digit '{target_digit}' with shape: 
+{synthetic_image.shape}")
+
  batch_size=BATCH_SIZE, epochs=2)
 
     print("\n--- 4. Synthesizing Conditional Visual Targets ---")
@@ -210,5 +212,6 @@ def main():
     control_condition = np.zeros((1, NUM_CLASSES))
     control_condition[0, target_digit] = 1.0
     random_noise = np.random.normal(size=(1, LATENT_DIM))
+synthetic_image = generator.predict([random_noise, control_condition], verbose=0)print(f"Generated a conditional image array for digit '{target_digit}' with shape: {synthetic_image.shape}")
 if name == "main":main()
 
